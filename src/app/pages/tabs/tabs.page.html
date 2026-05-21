@@ -1,0 +1,23 @@
+<!-- Estrutura principal das abas da aplicação. -->
+<ion-tabs>
+  <!-- Barra inferior de navegação. -->
+  <ion-tab-bar slot="bottom">
+    <!-- Aba 1: identificação do aluno. -->
+    <ion-tab-button tab="aba-inicial" href="/tabs/aba-inicial" routerDirection="root">
+      <ion-icon name="home-outline"></ion-icon>
+      <ion-label>Início</ion-label>
+    </ion-tab-button>
+
+    <!-- Aba 2: produtos exibidos um por um. -->
+    <ion-tab-button tab="produto-individual" href="/tabs/produto-individual" routerDirection="root">
+      <ion-icon name="storefront-outline"></ion-icon>
+      <ion-label>Produto</ion-label>
+    </ion-tab-button>
+
+    <!-- Aba 3: lista completa dos produtos. -->
+    <ion-tab-button tab="lista-produtos" href="/tabs/lista-produtos" routerDirection="root">
+      <ion-icon name="list-outline"></ion-icon>
+      <ion-label>Lista</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

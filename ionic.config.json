@@ -1,0 +1,7 @@
+{
+  "name": "ionic-fakestore-gabriel",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

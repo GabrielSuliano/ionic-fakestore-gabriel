@@ -1,0 +1,24 @@
+# Dependências do Node
+node_modules/
+
+# Saídas de build do Angular/Ionic
+.angular/
+www/
+dist/
+out-tsc/
+
+# Pasta nativa gerada pelo Capacitor
+android/
+ios/
+
+# Arquivos de ambiente local
+.DS_Store
+Thumbs.db
+.chrome-captura/
+.vscode/
+.idea/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

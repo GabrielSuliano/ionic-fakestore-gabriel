@@ -1,0 +1,35 @@
+/* Card principal de identificação. */
+.cartao-identificacao {
+  --background: var(--cor-cartao);
+  border-radius: 22px;
+  box-shadow: 0 12px 30px rgba(0, 105, 92, 0.14);
+  overflow: hidden;
+}
+
+/* Foto do aluno no topo do cartão. */
+.foto-aluno {
+  width: 132px;
+  height: 132px;
+  margin: 10px auto 18px auto;
+  border: 5px solid var(--cor-destaque-suave);
+}
+
+/* Centralização do cabeçalho do cartão. */
+ion-card-header {
+  text-align: center;
+}
+
+/* Destaque da área da palavra-chave. */
+.area-palavra-chave {
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: 18px;
+  background: var(--cor-destaque-suave);
+  color: var(--cor-texto-principal);
+}
+
+/* Ajuste do texto da palavra-chave. */
+.area-palavra-chave p {
+  margin: 8px 0 0 0;
+  font-weight: 700;
+}

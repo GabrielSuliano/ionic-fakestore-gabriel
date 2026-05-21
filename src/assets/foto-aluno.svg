@@ -1,0 +1,6 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="80" fill="#D8F3EE"/>
+  <circle cx="256" cy="182" r="88" fill="#00695C"/>
+  <path d="M96 430C114 338 172 294 256 294C340 294 398 338 416 430" fill="#00695C"/>
+  <text x="256" y="475" text-anchor="middle" font-family="Arial" font-size="28" fill="#16211F">SUBSTITUA PELA FOTO</text>
+</svg>

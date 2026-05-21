@@ -1,0 +1,38 @@
+/* Importação dos estilos essenciais do Ionic. */
+@import "@ionic/angular/css/core.css";
+
+/* Importação dos estilos básicos do Ionic. */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Importação de utilitários opcionais do Ionic. */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/* Variáveis personalizadas usadas nas telas. */
+:root {
+  --cor-fundo-aplicacao: #eef7f5;
+  --cor-cartao: #ffffff;
+  --cor-destaque: #00695c;
+  --cor-destaque-suave: #d8f3ee;
+  --cor-texto-principal: #16211f;
+  --cor-texto-secundario: #596966;
+  --cor-borda-suave: #cfe3df;
+}
+
+/* Ajuste geral do fundo da aplicação. */
+ion-content {
+  --background: var(--cor-fundo-aplicacao);
+}
+
+/* Classe utilitária para limitar a largura do conteúdo em telas maiores. */
+.conteudo-centralizado {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}

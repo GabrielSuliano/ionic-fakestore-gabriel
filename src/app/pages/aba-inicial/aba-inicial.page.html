@@ -1,0 +1,57 @@
+<!-- Cabeçalho da tela inicial. -->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Identificação</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Conteúdo principal da aba inicial. -->
+<ion-content class="ion-padding">
+  <div class="conteudo-centralizado">
+    <!-- Card obrigatório com os dados do aluno. -->
+    <ion-card class="cartao-identificacao">
+      <ion-card-header>
+        <!-- Foto do aluno armazenada na pasta assets. -->
+        <ion-avatar class="foto-aluno">
+          <img [src]="caminhoFoto" alt="Foto do aluno">
+        </ion-avatar>
+
+        <!-- Título e subtítulo do cartão. -->
+        <ion-card-title>{{ nomeCompleto }}</ion-card-title>
+        <ion-card-subtitle>{{ temaAplicacao }}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <!-- Lista com informações exigidas no PDF. -->
+        <ion-list lines="full">
+          <ion-item>
+            <ion-label>
+              <strong>Turma</strong>
+              <p>{{ turma }}</p>
+            </ion-label>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>
+              <strong>Unidade</strong>
+              <p>{{ unidade }}</p>
+            </ion-label>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>
+              <strong>Turno</strong>
+              <p>{{ turno }}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+
+        <!-- Palavra-chave informada pelo professor. -->
+        <div class="area-palavra-chave">
+          <ion-chip color="secondary">Palavra-chave</ion-chip>
+          <p>{{ palavraChave }}</p>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

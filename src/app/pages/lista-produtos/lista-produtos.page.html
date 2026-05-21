@@ -1,0 +1,120 @@
+<!-- Cabeçalho da tela de lista completa. -->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Lista de produtos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Conteúdo da tela de lista completa. -->
+<ion-content class="ion-padding">
+  <div class="conteudo-centralizado">
+    <!-- Card de controle da lista. -->
+    <ion-card class="cartao-controle">
+      <ion-card-header>
+        <ion-card-title>Produtos da FakeStore API</ion-card-title>
+        <ion-card-subtitle>Consumo REST com Angular HttpClient</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <!-- Botão que apresenta todos os produtos. -->
+        @if (!listaVisivel) {
+          <ion-button expand="block" color="primary" (click)="apresentarTodosProdutos()" [disabled]="carregando">
+            Apresentar todos os produtos
+          </ion-button>
+        }
+
+        <!-- Botão que suprime a lista depois que ela aparece. -->
+        @if (listaVisivel) {
+          <ion-button expand="block" color="medium" (click)="suprimirLista()">
+            Suprimir lista da tela
+          </ion-button>
+        }
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Estado de carregamento da lista. -->
+    @if (carregando) {
+      <div class="area-carregamento">
+        <ion-spinner name="crescent"></ion-spinner>
+        <p>Buscando produtos...</p>
+      </div>
+    }
+
+    <!-- Mensagem de erro. -->
+    @if (!carregando && mensagemErro.length > 0) {
+      <ion-text color="danger">
+        <p>{{ mensagemErro }}</p>
+      </ion-text>
+    }
+
+    <!-- Filtros exibidos apenas quando a lista está visível. -->
+    @if (listaVisivel) {
+      <ion-card class="cartao-filtros">
+        <ion-card-content>
+          <!-- Input exigido no trabalho, usado para filtrar produtos por texto. -->
+          <ion-item>
+            <ion-label position="stacked">Filtrar por texto</ion-label>
+            <ion-input placeholder="Digite nome, categoria ou descrição" [(ngModel)]="textoBusca" (ionInput)="aplicarFiltros()"></ion-input>
+          </ion-item>
+
+          <!-- Select opcional para filtrar por tipo/categoria de produto. -->
+          <ion-item>
+            <ion-label position="stacked">Filtrar por categoria</ion-label>
+            <ion-select interface="popover" [(ngModel)]="categoriaSelecionada" (ionChange)="aplicarFiltros()">
+              <ion-select-option value="todas">Todas</ion-select-option>
+
+              @for (categoria of categoriasDisponiveis; track categoria) {
+                <ion-select-option [value]="categoria">{{ categoria }}</ion-select-option>
+              }
+            </ion-select>
+          </ion-item>
+
+          <!-- Botão para limpar os filtros e retornar à lista completa. -->
+          <ion-button expand="block" fill="outline" color="secondary" (click)="limparFiltros()">
+            Limpar filtros
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+    }
+
+    <!-- Lista dos produtos filtrados ou completos. -->
+    @if (listaVisivel) {
+      <ion-list class="lista-produtos">
+        @for (produto of produtosFiltrados; track produto.identificador) {
+          <!-- Card do produto apresentado dentro da lista. -->
+          <ion-card class="cartao-produto-lista">
+            <div class="linha-produto">
+              <!-- Imagem do produto. -->
+              <div class="miniatura-produto">
+                <img class="imagem-lista-produto" [src]="produto.imagem" [alt]="produto.titulo" />
+              </div>
+
+              <!-- Dados textuais do produto. -->
+              <div class="informacoes-produto">
+                <ion-card-header>
+                  <ion-card-title>{{ produto.titulo }}</ion-card-title>
+                  <ion-card-subtitle>{{ produto.categoria }}</ion-card-subtitle>
+                </ion-card-header>
+
+                <ion-card-content>
+                  <p>{{ produto.descricao }}</p>
+                  <div class="rodape-produto">
+                    <ion-badge color="secondary">ID {{ produto.identificador }}</ion-badge>
+                    <ion-badge color="primary">US$ {{ produto.preco }}</ion-badge>
+                  </div>
+                </ion-card-content>
+              </div>
+            </div>
+          </ion-card>
+        }
+      </ion-list>
+
+      <!-- Aviso quando o filtro não encontra produtos. -->
+      @if (produtosFiltrados.length === 0) {
+        <ion-text color="medium">
+          <p class="aviso-vazio">Nenhum produto encontrado com os filtros atuais.</p>
+        </ion-text>
+      }
+    }
+  </div>
+</ion-content>

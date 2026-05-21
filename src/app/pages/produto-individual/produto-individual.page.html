@@ -1,0 +1,82 @@
+<!-- Cabeçalho da tela de produto individual. -->
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Produto individual</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Conteúdo da tela de produto individual. -->
+<ion-content class="ion-padding">
+  <div class="conteudo-centralizado">
+    <!-- Estado de carregamento enquanto a API responde. -->
+    @if (carregando) {
+      <div class="area-carregamento">
+        <ion-spinner name="crescent"></ion-spinner>
+        <p>Carregando produtos da FakeStore API...</p>
+      </div>
+    }
+
+    <!-- Mensagem de erro caso a API não responda. -->
+    @if (!carregando && mensagemErro.length > 0) {
+      <ion-text color="danger">
+        <p>{{ mensagemErro }}</p>
+      </ion-text>
+    }
+
+    <!-- Card do produto atual. -->
+    @if (!carregando && produtoAtual) {
+      <ion-card class="cartao-produto">
+        <!-- Imagem do produto. -->
+        <div class="area-imagem-produto">
+          <img class="imagem-produto" [src]="produtoAtual.imagem" [alt]="produtoAtual.titulo" />
+        </div>
+
+        <!-- Informações principais do produto. -->
+        <ion-card-header>
+          <ion-card-title>{{ produtoAtual.titulo }}</ion-card-title>
+          <ion-card-subtitle>{{ produtoAtual.categoria }}</ion-card-subtitle>
+        </ion-card-header>
+
+        <ion-card-content>
+          <!-- Descrição resumida do produto. -->
+          <p class="descricao-produto">{{ produtoAtual.descricao }}</p>
+
+          <!-- Propriedades importantes do produto. -->
+          <ion-item lines="none">
+            <ion-label>
+              <strong>ID</strong>
+              <p>{{ produtoAtual.identificador }}</p>
+            </ion-label>
+            <ion-badge color="secondary">US$ {{ produtoAtual.preco }}</ion-badge>
+          </ion-item>
+
+          <ion-item lines="none">
+            <ion-label>
+              <strong>Avaliação</strong>
+              <p>{{ produtoAtual.avaliacao.nota }} / 5 - {{ produtoAtual.avaliacao.quantidade }} avaliações</p>
+            </ion-label>
+          </ion-item>
+
+          <!-- Indicador de posição na lista. -->
+          <p class="contador-produto">Produto {{ indiceAtual + 1 }} de {{ produtos.length }}</p>
+
+          <!-- Botões exigidos no PDF: anterior e próximo, desabilitados no início/fim. -->
+          <ion-buttons class="botoes-navegacao">
+            <ion-button color="primary" fill="solid" [disabled]="!podeAvancar" (click)="apresentarProximoProduto()">
+              Próximo
+            </ion-button>
+
+            <ion-button color="primary" fill="outline" [disabled]="!podeVoltar" (click)="apresentarProdutoAnterior()">
+              Anterior
+            </ion-button>
+          </ion-buttons>
+
+          <!-- Botão extra com routerDirection para demonstrar navegação Ionic entre abas. -->
+          <ion-button expand="block" fill="clear" color="secondary" routerLink="/tabs/lista-produtos" routerDirection="forward">
+            Ver lista completa
+          </ion-button>
+        </ion-card-content>
+      </ion-card>
+    }
+  </div>
+</ion-content>
