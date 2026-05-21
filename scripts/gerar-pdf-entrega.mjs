@@ -204,6 +204,7 @@ const html = `
   <p><strong>Turma:</strong> ADS0101M</p>
   <p><strong>Unidade:</strong> CG</p>
   <p><strong>Periodo:</strong> Manha</p>
+  <p><strong>Palavra-chave:</strong> ______________________________</p>
   <p><strong>Repositorio GitHub:</strong> ${repositorioGitHub}</p>
 
   <div class="quebra">
