@@ -1,58 +1,103 @@
-# Aplicativo Ionic Standalone - FakeStore API
+# Ionic FakeStore API - Gabriel Suliano
 
-Projeto Ionic com Angular standalone, estrutura de abas e consumo da FakeStore API.
+Aplicativo Ionic 8 com Angular standalone, template de abas e consumo da FakeStore API:
 
-## O que já está pronto
+`https://fakestoreapi.com/products`
 
-- Aba 1: cartão de identificação com nome, turma, unidade, turno, palavra-chave e foto em `assets`.
-- Aba 2: lista de produtos um por um, com botão anterior e próximo desabilitados no início/fim da lista.
-- Aba 3: botão para exibir todos os produtos e outro botão para suprimir a lista.
-- Serviço próprio para consumir `https://fakestoreapi.com/products` e armazenar os produtos em array de objetos.
-- Código sem arrow functions.
-- Variáveis principais em português.
-- Blocos comentados nos arquivos principais.
-- Uso de IonCard, IonButton, IonInput, IonSelect, IonTabs e CSS Custom Properties.
+## Dados do aluno
 
-## Onde editar seus dados
+- Nome: Gabriel Suliano
+- Turma: ADS0101M
+- Unidade: CG
+- Turno: Manha
+- Palavra-chave: 019
 
-Abra o arquivo:
+## O que foi implementado
 
-`src/app/pages/aba-inicial/aba-inicial.page.ts`
+- Tab 1: card de identificacao com nome, turma, unidade, turno, palavra-chave e foto do aluno em `src/assets`.
+- Tab 2: exibicao de produtos um por um, com botoes `Proximo` e `Anterior` desabilitados no final/inicio da lista.
+- Tab 3: botao para apresentar todos os produtos e botao para suprimir a lista da tela.
+- Servico Angular em `src/app/services/produtos.service.ts` consumindo apenas os produtos da FakeStore API.
+- Uso de componentes Ionic como `IonCard`, `IonButton`, `IonInput`, `IonSelect`, `IonTabs` e `routerDirection`.
+- CSS Custom Properties em `src/styles.scss`.
+- PDF de entrega com prints das 3 telas na pasta `entrega/`.
 
-Altere os valores abaixo:
+## Como baixar e abrir no VS Code
 
-```ts
-public nomeCompleto: string = 'SEU NOME COMPLETO';
-public turma: string = 'ADS0301M';
-public unidade: string = 'CG';
-public turno: string = 'Manhã';
-public palavraChave: string = 'PALAVRA-CHAVE DO PROFESSOR';
-public caminhoFoto: string = 'assets/foto-aluno.svg';
+1. Clonar o repositorio:
+
+```bash
+git clone https://github.com/GabrielSuliano/ionic-fakestore-gabriel.git
 ```
 
-## Onde colocar sua foto
+2. Entrar na pasta do projeto:
 
-A foto provisória está em:
-
-`src/assets/foto-aluno.svg`
-
-Você pode substituir por uma foto sua, por exemplo:
-
-`src/assets/minha-foto.jpg`
-
-Depois atualize o caminho em `aba-inicial.page.ts`:
-
-```ts
-public caminhoFoto: string = 'assets/minha-foto.jpg';
+```bash
+cd ionic-fakestore-gabriel
 ```
 
-## Rodar no navegador
+3. Abrir no VS Code:
+
+```bash
+code .
+```
+
+## Como instalar as dependencias
+
+O projeto nao envia a pasta `node_modules`, entao e necessario instalar as dependencias depois de baixar:
 
 ```bash
 npm install
-ionic serve
 ```
 
-## Gerar Android/APK
+## Como executar no navegador
 
-Veja também o passo a passo enviado na conversa.
+Opcao 1, usando o script do projeto:
+
+```bash
+npm start
+```
+
+Opcao 2, usando Ionic CLI via `npx`:
+
+```bash
+npx ionic serve
+```
+
+Depois abra o endereco mostrado no terminal, normalmente:
+
+`http://localhost:8100`
+
+## Como gerar build web
+
+```bash
+npm run build
+```
+
+O build sera gerado na pasta `www/`.
+
+## Onde esta o PDF da entrega
+
+O PDF com os prints das telas esta em:
+
+`entrega/entrega-gabriel-suliano.pdf`
+
+Tambem ha os prints separados:
+
+- `entrega/tab1-identificacao.png`
+- `entrega/tab2-produto-individual.png`
+- `entrega/tab3-lista-produtos.png`
+
+## Arquivos principais para avaliacao
+
+- `src/app/pages/aba-inicial/aba-inicial.page.*`
+- `src/app/pages/produto-individual/produto-individual.page.*`
+- `src/app/pages/lista-produtos/lista-produtos.page.*`
+- `src/app/pages/tabs/tabs.page.*`
+- `src/app/services/produtos.service.ts`
+- `src/app/models/produto.ts`
+- `src/styles.scss`
+
+## Observacao sobre APK
+
+O enunciado tambem pede apresentacao do app instalado em Android. Para gerar APK, e necessario ter Android Studio, Android SDK e Java configurados na maquina. O projeto ja possui configuracoes do Capacitor, mas a pasta nativa Android nao foi enviada no GitHub porque esta no `.gitignore`.
