@@ -10,7 +10,7 @@ Aplicativo Ionic 8 com Angular standalone, template de abas e consumo da FakeSto
 - Turma: ADS0101M
 - Unidade: CG
 - Turno: Manha
-- Palavra-chave: 019
+- Palavra-chave: sera informada pelo professor na faculdade
 
 ## O que foi implementado
 

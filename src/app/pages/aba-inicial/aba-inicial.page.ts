@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { IonAvatar, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonChip, IonContent, IonHeader, IonItem, IonLabel, IonList, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 
 /* Tela inicial com o cartão de identificação do aluno. */
@@ -7,7 +8,7 @@ import { IonAvatar, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, Ion
   templateUrl: './aba-inicial.page.html',
   styleUrls: ['./aba-inicial.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonAvatar, IonList, IonItem, IonLabel, IonChip]
+  imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonAvatar, IonList, IonItem, IonLabel, IonChip]
 })
 export class AbaInicialPage {
   /* Dados do aluno: altere estes valores antes de apresentar ao professor. */
@@ -15,7 +16,7 @@ export class AbaInicialPage {
   public turma: string = 'ADS0101M';
   public unidade: string = 'CG';
   public turno: string = 'Manha';
-  public palavraChave: string = '019';
+  public palavraChave: string = '';
 
   /* Caminho da foto guardada dentro da pasta src/assets. */
   public caminhoFoto: string = 'assets/foto-gabriel.jpeg';

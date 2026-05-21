@@ -47,10 +47,12 @@
         </ion-list>
 
         <!-- Palavra-chave informada pelo professor. -->
+        @if (palavraChave.length > 0) {
         <div class="area-palavra-chave">
           <ion-chip color="secondary">Palavra-chave</ion-chip>
           <p>{{ palavraChave }}</p>
         </div>
+        }
       </ion-card-content>
     </ion-card>
   </div>
