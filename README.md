@@ -1,103 +1,71 @@
-# Ionic FakeStore API - Gabriel Suliano
+# Ionic FakeStore Gabriel
 
-Aplicativo Ionic 8 com Angular standalone, template de abas e consumo da FakeStore API:
+Aplicativo Ionic com Angular standalone criado para atividade de Desenvolvimento Mobile. O app consome a FakeStore API e organiza a entrega em abas com identificacao do aluno, visualizacao individual de produtos e listagem completa.
 
-`https://fakestoreapi.com/products`
+## Recursos
 
-## Dados do aluno
+- Aba inicial com dados do aluno e foto.
+- Aba de produto individual com navegacao anterior/proximo.
+- Aba de lista completa com exibicao e ocultacao dos produtos.
+- Service Angular para consumo da FakeStore API.
+- Modelo `Produto` tipado em TypeScript.
+- Prints e PDF de entrega na pasta `entrega/`.
 
-- Nome: Gabriel Suliano
-- Turma: ADS0101M
-- Unidade: CG
-- Turno: Manha
-- Palavra-chave: em branco para preencher quando o professor informar na faculdade
+## Stack
 
-## O que foi implementado
+- Ionic 8
+- Angular 18
+- TypeScript
+- Capacitor 6
+- FakeStore API
 
-- Tab 1: card de identificacao com nome, turma, unidade, turno, palavra-chave e foto do aluno em `src/assets`.
-- Tab 2: exibicao de produtos um por um, com botoes `Proximo` e `Anterior` desabilitados no final/inicio da lista.
-- Tab 3: botao para apresentar todos os produtos e botao para suprimir a lista da tela.
-- Servico Angular em `src/app/services/produtos.service.ts` consumindo apenas os produtos da FakeStore API.
-- Uso de componentes Ionic como `IonCard`, `IonButton`, `IonInput`, `IonSelect`, `IonTabs` e `routerDirection`.
-- CSS Custom Properties em `src/styles.scss`.
-- PDF de entrega com prints das 3 telas na pasta `entrega/`.
-
-## Como baixar e abrir no VS Code
-
-1. Clonar o repositorio:
-
-```bash
-git clone https://github.com/GabrielSuliano/ionic-fakestore-gabriel.git
-```
-
-2. Entrar na pasta do projeto:
-
-```bash
-cd ionic-fakestore-gabriel
-```
-
-3. Abrir no VS Code:
-
-```bash
-code .
-```
-
-## Como instalar as dependencias
-
-O projeto nao envia a pasta `node_modules`, entao e necessario instalar as dependencias depois de baixar:
+## Como rodar
 
 ```bash
 npm install
-```
-
-## Como executar no navegador
-
-Opcao 1, usando o script do projeto:
-
-```bash
 npm start
 ```
 
-Opcao 2, usando Ionic CLI via `npx`:
+Normalmente o Ionic abre em:
+
+```text
+http://localhost:8100
+```
+
+Tambem e possivel rodar com:
 
 ```bash
 npx ionic serve
 ```
 
-Depois abra o endereco mostrado no terminal, normalmente:
-
-`http://localhost:8100`
-
-## Como gerar build web
+## Build
 
 ```bash
 npm run build
 ```
 
-O build sera gerado na pasta `www/`.
+O build web e gerado na pasta `www/`.
 
-## Onde esta o PDF da entrega
+## Arquivos principais
 
-O PDF com os prints das telas esta em:
+```text
+src/app/pages/aba-inicial/
+src/app/pages/produto-individual/
+src/app/pages/lista-produtos/
+src/app/pages/tabs/
+src/app/services/produtos.service.ts
+src/app/models/produto.ts
+```
 
-`entrega/entrega-gabriel-suliano.pdf`
+## Entrega
 
-Tambem ha os prints separados:
+```text
+entrega/entrega-gabriel-suliano.pdf
+entrega/tab1-identificacao.png
+entrega/tab2-produto-individual.png
+entrega/tab3-lista-produtos.png
+```
 
-- `entrega/tab1-identificacao.png`
-- `entrega/tab2-produto-individual.png`
-- `entrega/tab3-lista-produtos.png`
+## Status
 
-## Arquivos principais para avaliacao
-
-- `src/app/pages/aba-inicial/aba-inicial.page.*`
-- `src/app/pages/produto-individual/produto-individual.page.*`
-- `src/app/pages/lista-produtos/lista-produtos.page.*`
-- `src/app/pages/tabs/tabs.page.*`
-- `src/app/services/produtos.service.ts`
-- `src/app/models/produto.ts`
-- `src/styles.scss`
-
-## Observacao sobre APK
-
-O enunciado tambem pede apresentacao do app instalado em Android. Para gerar APK, e necessario ter Android Studio, Android SDK e Java configurados na maquina. O projeto ja possui configuracoes do Capacitor, mas a pasta nativa Android nao foi enviada no GitHub porque esta no `.gitignore`.
+Projeto academico funcional, com consumo de API externa e navegacao em abas.
