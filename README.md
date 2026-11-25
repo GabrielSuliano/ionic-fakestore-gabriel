@@ -69,3 +69,15 @@ entrega/tab3-lista-produtos.png
 ## Status
 
 Projeto academico funcional, com consumo de API externa e navegacao em abas.
+
+## Arquitetura e dados
+
+Rotas standalone em `src/app/app.routes.ts` carregam três abas. `ProdutosService` consulta `environment.enderecoProdutos` com HttpClient, converte para o modelo `Produto` e mantém cache em memória. Busca textual/categorias operam sobre os produtos carregados; o cache se perde ao recarregar.
+
+Não há API própria, banco, login, carrinho ou pagamento. É exercício de consumo de API pública. A URL fica em `src/environments/environment.ts`, sem loader `.env`.
+
+## Reprodutibilidade e testes
+
+`package.json` fixa Angular 18.2.13, Ionic 8.4.3, Capacitor 6.2.0. Use Node compatível com Angular 18 e `npm ci`. `start`/`build` invocam `ionic`, mas `@ionic/cli` não está em devDependencies; configure uma CLI Ionic compatível separadamente, ou use a CLI Angular local: `npm run ng -- serve` e `npm run ng -- build`. Porta 8100 refere-se ao Ionic; `ng serve` normalmente usa 4200.
+
+Não há script `test`, suíte ou deploy confirmado. `entrega/` contém evidências da atividade, não geradas nesta auditoria. Prioridades: CLI reproduzível e testes de erro/cache/filtros. Não há licença versionada.
